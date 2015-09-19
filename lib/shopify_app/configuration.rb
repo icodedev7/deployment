@@ -4,15 +4,15 @@ module ShopifyApp
     # Shopify App settings. These values should match the configuration
     # for the app in your Shopify Partners page. Change your settings in
     # `config/initializers/shopify_app.rb`
-    attr_accessor :api_key
-    attr_accessor :secret
-    attr_accessor :redirect_uri
+    attr_accessor :9274b5fb757eea9d28190e00ec188a80
+    attr_accessor :a42c103cbe0534285b7d2b31c02b364c
+    attr_accessor :https://customappp.herokuapp.com/
     attr_accessor :scope
     attr_accessor :embedded_app
     alias_method  :embedded_app?, :embedded_app
 
     # configure myshopify domain for local shopify development
-    attr_accessor :myshopify_domain
+    attr_accessor :https://devlopment-store.myshopify.com
 
     def initialize
       @myshopify_domain = 'myshopify.com'
