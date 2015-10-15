@@ -16,7 +16,7 @@ module ShopifyApp
 
     def initialize
       @myshopify_domain = 'myshopify.com'
-    end
+    end 
   end
 
   def self.configuration
