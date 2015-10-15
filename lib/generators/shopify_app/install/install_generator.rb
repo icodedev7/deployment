@@ -16,7 +16,7 @@ module ShopifyApp
       end
 
       def defaults
-        {
+        {                
           api_key: '<api_key>',
           secret: '<secret>',
           redirect_uri: '<redirect_uri>',
