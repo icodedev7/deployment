@@ -4,5 +4,5 @@ ShopifyApp::Engine.routes.draw do
     post 'login' => :create, :as => :authenticate
     get 'auth/shopify/callback' => :callback
     get 'logout' => :destroy, :as => :logout
-  end
+  end 
 end
