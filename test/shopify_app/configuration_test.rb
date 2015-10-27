@@ -23,7 +23,7 @@ class ConfigurationTest < ActiveSupport::TestCase
       config.myshopify_domain = 'myshopify.io'
     end
 
-    assert_equal "myshopify.io", ShopifyApp.configuration.myshopify_domain
+    assert_equal "myshopify.io", ShopifyApp.configuration.myshopify_domain.
   end
 
 end
