@@ -1,0 +1,3 @@
+apt: openjdk-7-jdk
+yum: java-openjdk
+pacman: jre7-openjdk
