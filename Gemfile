@@ -1,34 +1,27 @@
+source "https://rubygems.org"
 ruby "2.1.5"
-source "http://rubygems.org"
 
-gem "compass"
-gem "haml"
-gem "heroku-nav"
-gem "rake"
-gem "rdiscount", "~> 1.6.x"
-gem "sass"
-gem "sinatra"
+gem "rails", "4.2.2"
 
-group :development do
-  gem "shotgun"
+gem "shopify_app", "~> 6.0.0"
+gem "jquery-rails", "~> 4.0.4"
+gem "quiet_assets"
+gem 'dotenv-rails'
+
+group :assets do
+  gem "sass-rails"
+  gem "coffee-rails"
+  gem "uglifier", ">= 1.0.3"
+end
+
+group :development, :test do
+  gem "thin"
+  gem "less-rails-bootstrap"
+  gem "therubyracer", platforms: :ruby
+  gem "pry-rails"
+  gem "sqlite3"
 end
 
 group :production do
-  gem "rack-ssl-enforcer"
-  gem "thin"
-end
-
-group :development, :production do
-  gem "pg", "=0.13.2"
-  gem "rollbar"
-end
-
-group :test do
-  gem "rack-test"
-  gem "minitest-spec-context"
-  gem "mocha"
-end
-
-group :packaging do
-  gem "fog"
+  gem "pg"
 end
