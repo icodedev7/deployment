@@ -1,7 +1,25 @@
-# Create a new rails app
-$ rails new my_shopify_app
-$ cd my_shopify_app
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+require "shopify_app/version"
 
-# Add the gem shopify_app to your Gemfile
-$ echo "gem 'shopify_app'" >> Gemfile
-$ bundle install
+Gem::Specification.new do |s|
+  s.name        = "shopify_app"
+  s.version     = ShopifyApp::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.author      = "Shopify"
+  s.summary     = %q{This gem is used to get quickly started with the Shopify API}
+
+  s.add_dependency('rails', '>= 3.1', '< 5.0')
+
+  s.add_runtime_dependency('shopify_api', '~> 4.0.2')
+  s.add_runtime_dependency('omniauth-shopify-oauth2', '~> 1.1.10')
+
+  s.add_development_dependency('rake')
+  s.add_development_dependency('byebug')
+  s.add_development_dependency('sqlite3')
+  s.add_development_dependency('minitest')
+  s.add_development_dependency('mocha')
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test}/*`.split("\n")
+  s.require_paths = ["lib"]
+end
