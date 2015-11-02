@@ -1,7 +1,17 @@
-<%= form_tag do %>
-<%= radio_button_tag(:age, "child") %>
-<%= label_tag(:age_child, "I am younger than 21") %>
-<%= radio_button_tag(:age, "adult") %>
-<%= label_tag(:age_adult, "I'm over 21") %>
-  <%= f.submit "Create" %>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Install Page</title>
+</head>
+<body>
+
+  <h2>Install the application</h2>
+
+  <form method="GET" action="login">
+    <label>Type shop name:</label>
+    <input type="text" name="shop" placeholder="blabla.myshopify.com"/>
+    <button type='submit'value="submit">Install</button>
+  </form>
+
+</body>
+</html>
