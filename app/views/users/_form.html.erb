@@ -1,0 +1,28 @@
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= field_set_tag do %>
+        <div class="row">
+          <div class="span5">
+            <%= f.label :name %>
+            <%= f.text_field :name, required: true %>
+            <%= f.label :email %>
+            <%= f.text_field :email, placeholder: 'Must be valid email', required: true %>
+            <%= f.label :subdomain %>
+            <%= f.text_field :subdomain, placeholder: 'Any except for www, us, ca, jp' %>
+            <%= f.label :birthdate %>
+            <%= f.text_field :birthdate, placeholder: 'dd-mm-yyyy' %>
+            <%= button_tag 'Submit' %>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+ 
