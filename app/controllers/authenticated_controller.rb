@@ -2,5 +2,7 @@ class AuthenticatedController < ApplicationController
 before_action : login_again_if_different_shop
 around_filter :shopify_session
 layout ShopifyApp.configuration.embedded_app? ? 'embedded_app' : 'application'
+SHOPIFY_CLIENT_API_KEY=9274b5fb757eea9d28190e00ec188a80
+SHOPIFY_CLIENT_API_SECRET=d557fb57a6a882d152545284e02fbc31
 end
  
