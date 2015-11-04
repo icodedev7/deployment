@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+get '/products.json' do
+  shopify_session do
+    products = ShopifyAPI::Product.all(limit: 5)
+    products.to_json
+  end
+end
