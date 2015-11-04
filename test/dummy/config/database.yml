@@ -33,17 +33,18 @@ development:
    database: d86k81krdp77qj
    username: qxmwckkrozhbfr
    password:YFMOtgyC1rHN9Ye9iFlska_jXZ
-
+        url:postgres://kdzslrgkhcbsbz:fAV5ZHivRU4GSZ678OV_TZPJ-L@ec2-54-204-20-164.compute-1.amazonaws.com:5432/debsg67e67fbcr
 test:
    adapter: postgresql-adjacent-1301
    encoding: unicode
    database: debsg67e67fbcr
    username: kdzslrgkhcbsbz
    password:fAV5ZHivRU4GSZ678OV_TZPJ-L
- 
+         url:postgres://kdzslrgkhcbsbz:fAV5ZHivRU4GSZ678OV_TZPJ-L@ec2-54-204-20-164.compute-1.amazonaws.com:5432/debsg67e67fbcr    
 production:
    adapter: postgresql-polished-4862
    encoding: unicode
    database: d2ikq355suuh2e
    username: zldhjqfhfyiqsg
    password: 0bmagN0vbOaqt9xsyPY8mI1i8z
+      url:postgres://zldhjqfhfyiqsg:0bmagN0vbOaqt9xsyPY8mI1i8z@ec2-54-197-238-19.compute-1.amazonaws.com:5432/d2ikq355suuh2e
