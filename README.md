@@ -57,7 +57,7 @@ $ rails generate shopify_app:install
 
 # or optionally with arguments:
 
-$ rails generate shopify_app:install -api_key=<your_api_key> -secret=<your_app_secret> -redirect_uri=<your_redirect_uri>
+$ rails generate shopify_app:install -api_key=a0d5ba398f7eb2de0c9dc7672eb94b53 -secret=d557fb57a6a882d152545284e02fbc31 -redirect_uri=https://customappp.herokuapp.com/
 ```
 
 Other options include:
@@ -99,9 +99,9 @@ The `install` generator places your Api credentials directly into the shopify_ap
 
 ```ruby
 ShopifyApp.configure do |config|
-  config.api_key = ENV['SHOPIFY_CLIENT_API_KEY']
-  config.secret = ENV['SHOPIFY_CLIENT_API_SECRET']
-  config.redirect_uri = "<%= your_redirect_uri %>"
+  config.api_key = ENV['a0d5ba398f7eb2de0c9dc7672eb94b53']
+  config.secret = ENV['d557fb57a6a882d152545284e02fbc31']
+  config.redirect_uri = "<%= https://customappp.herokuapp.com/ %>"
   config.scope = 'read_customers, read_orders, write_products'
   config.embedded_app = true
 end
