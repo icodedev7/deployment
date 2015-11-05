@@ -1,36 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= 'Form validation using Ruby on Rails' %></title>
-  <%= stylesheet_link_tag "application", media: "all",
-                          "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Users", users_path %></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
-<div class="container">
-  <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
-  <%= yield %>
-  <footer class="footer">
-  </footer>
-</div>
-</body>
-</html>
+EmbededApp::Application.routes.draw do
+
+  controller :sessions do
+    get 'login' => :new, :as => :login
+    post 'login' => :create, :as => :authenticate
+    get 'auth/shopify/callback' => :callback
+    get 'logout' => :destroy, :as => :logout
+  end
+
+  get 'modal' => "home#modal", :as => :modal
+  get 'modal_buttons' => "home#modal_buttons", :as => :modal_buttons
+  get 'regular_app_page' => "home#regular_app_page"
+  get 'help' => "home#help"
+  get 'pagination' => "home#pagination"
+  get 'breadcrumbs' => "home#breadcrumbs"
+  get 'buttons' => "home#buttons"
+  get 'form_page' => "home#form_page"
+  post 'form_page' => "home#form_page"
+  get 'error' => 'home#error'
+
+  root :to => 'home#index'
+end
