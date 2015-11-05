@@ -35,21 +35,21 @@
    encoding: unicode
   
 development:
-   adapter:postgresql-closed-7131
+   adapter:sqlite3
    encoding: unicode
    database: d86k81krdp77qj
    username: qxmwckkrozhbfr
    password:YFMOtgyC1rHN9Ye9iFlska_jXZ
 
 test:
-   adapter: postgresql-adjacent-1301
+   adapter: sqlite3
    encoding: unicode
    database: debsg67e67fbcr
    username: kdzslrgkhcbsbz
    password:fAV5ZHivRU4GSZ678OV_TZPJ-L
  
 production:
-   adapter: postgresql-polished-4862
+   adapter: sqlite3
    encoding: unicode
    database: d2ikq355suuh2e
    username: zldhjqfhfyiqsg
