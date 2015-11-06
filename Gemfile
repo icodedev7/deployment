@@ -31,4 +31,33 @@ end
 
 group :packaging do
   gem "fog"
+  end
+group :development, :test do
+  gem "sqlite3"
+  #Helpful gems
+  gems "better_errors" #
+  improves error handling
+  gem "binding_of_caller" #
+  used by better errors
+  
+  #Testing frameworks
+  gem 'rspec-rails'#testing
+  frameworks
+  gem "factory_girls_rails"#
+  use factories, not fixtures
+  gem "capybara" #simulates
+  browser activity
+  gem "fakeweb"
+  #Automated testing
+  gem 'gaurd'# automated
+  execution of test suit upon 
+  change
+  gem" gaurad-rspec" #gaurd
+  integration with respec  
+  
+  #only install the rb-fsevent
+  gem if on Max OSX
+  gem 'rb-fswvent' #used for
+  Growl notifications
+  end
 end
