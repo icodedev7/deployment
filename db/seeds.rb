@@ -1,3 +1,10 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -33,17 +40,17 @@ development:
    database: d86k81krdp77qj
    username: qxmwckkrozhbfr
    password:YFMOtgyC1rHN9Ye9iFlska_jXZ
-        
+
+test:
    adapter: postgresql-adjacent-1301
    encoding: unicode
    database: debsg67e67fbcr
    username: kdzslrgkhcbsbz
    password:fAV5ZHivRU4GSZ678OV_TZPJ-L
-         
+ 
 production:
    adapter: postgresql-polished-4862
    encoding: unicode
    database: d2ikq355suuh2e
    username: zldhjqfhfyiqsg
    password: 0bmagN0vbOaqt9xsyPY8mI1i8z
-     

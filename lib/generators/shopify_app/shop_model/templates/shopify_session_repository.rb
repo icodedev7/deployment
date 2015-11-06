@@ -1,7 +1,14 @@
-if Rails.configuration.cache_classes
-  ShopifyApp::SessionRepository.storage = SessionStorage
-else
-  ActionDispatch::Reloader.to_prepare do
-    ShopifyApp::SessionRepository.storage = SessionStorage
+class Shop < ActiveRecord::Base
+  def self.store(session)
+    shop = Shop.new(domain: session.url, token: session.token)
+    shop.save!
+    shop.id
+  end
+
+  def retrieve(id)
+    shop = Shop.find(id)
+    ShopifyAPI::Session.new(shop.domain, shop.token)
   end
 end
+
+ShopifySessionRepository.storage = InMemorySessionStore
