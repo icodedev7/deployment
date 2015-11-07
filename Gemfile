@@ -31,5 +31,4 @@ end
 
 group :packaging do
   gem "fog"
-endgem 'shopify
-_app'
+end
