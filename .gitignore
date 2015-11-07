@@ -9,4 +9,3 @@ doc/
 *.sqlite3
 test/tmp/*
 .idea
-node_modules/
