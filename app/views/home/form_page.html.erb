@@ -34,7 +34,7 @@
 <p>A normal form submitted by a data tag and a button in Shopify. Embedded apps can mostly work exactly like a normal app, except with Shopify admin UI integration.</p>
 
 <form method="POST" action="form_page" data-shopify-app-submit="save-unicorn-form-message">
-  <input name="authenticity_token" value="e6648cbd92e863b608b572eed93cf872-1446871509" type="hidden">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <p>
     <label>Name:</label>
     <input type="text" name="name"/>
