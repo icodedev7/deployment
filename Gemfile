@@ -1,6 +1,9 @@
 ruby "2.1.5"
 source "http://rubygems.org"
-
+>> require 'rubygems'
+=> true
+>> require 'shopify_api'
+=> true
 gem "compass"
 gem "haml"
 gem "heroku-nav"
