@@ -1,8 +1,8 @@
 <?php
-	namespace sandeepshetty\shopify_api;
+	namespace shopify\shopify_api;
 	function install_url($shop, $api_key)
 	{
-		return "http://$shop/admin/api/auth?api_key=$api_key";
+		return "http://devlopment-store.myshopify.com/admin/api/auth?api_key=$api_key";
 	}
 	function is_valid_request($query_params, $shared_secret)
 	{
@@ -23,7 +23,7 @@
 	}
 	function oauth_access_token($shop, $api_key, $shared_secret, $code)
 	{
-		return _api('POST', "https://$shop/admin/oauth/access_token", NULL, array('client_id'=>$api_key, 'client_secret'=>$shared_secret, 'code'=>$code));
+		return _api('POST', "https://devlopment-store.myshopify.com/admin/oauth/access_token", NULL, array('client_id'=>$api_key, 'client_secret'=>$shared_secret, 'code'=>$code));
 	}
 	function client($shop, $shops_token, $api_key, $shared_secret, $private_app=false)
 	{
@@ -89,6 +89,6 @@
 	}
 	function legacy_baseurl($shop, $api_key, $password)
 	{
-		return "https://$api_key:$password@$shop/";
+		return "https://customappp.herokuapp.com/";
 	}
 ?>
