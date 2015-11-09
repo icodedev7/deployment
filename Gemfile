@@ -16,6 +16,7 @@ end
 group :production do
   gem "rack-ssl-enforcer"
   gem "thin"
+  gem "rails_12factor"
 end
 
 group :development, :production do
