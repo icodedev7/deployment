@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 ruby "2.1.5"
 ruby "1.9.3", :engine => "jruby", :engine_version => "1.7.8"
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0'
 gem "compass"
 gem "haml"
 gem "heroku-nav"
