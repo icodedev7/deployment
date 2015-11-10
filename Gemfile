@@ -1,6 +1,6 @@
+source "https://rubygems.org"
+ruby "1.9.3"
 ruby "2.1.5"
-source "http://rubygems.org"
-
 gem "compass"
 gem "haml"
 gem "heroku-nav"
