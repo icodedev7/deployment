@@ -32,4 +32,5 @@ end
 
 group :packaging do
   gem "fog"
+  gem 'cucumber-rails', '1.2.1', require: false
 end
