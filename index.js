@@ -10,7 +10,7 @@ app.get('/', function(req, res){
 app.use("/css", express.static(__dirname + '/css'));
 
 //array of users currently in chat
-var people = {};
+var people = {};				
 
 io.on('connection', function(socket){
     console.log('user connected!');

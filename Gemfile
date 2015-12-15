@@ -12,7 +12,7 @@ gem "sinatra"
 
 group :development do
   gem "shotgun"
-end
+end		
 
 group :production do
   gem "rack-ssl-enforcer"
