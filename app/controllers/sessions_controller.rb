@@ -1,3 +1,3 @@
-	class SessionsController < ApplicationController
+class SessionsController < ApplicationController
   include ShopifyApp::SessionsController
 end

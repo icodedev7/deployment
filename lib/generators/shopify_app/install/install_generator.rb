@@ -17,9 +17,9 @@ module ShopifyApp
 
       def defaults
         {                
-          api_key: '<api_key>',
-          secret: '<secret>',
-          redirect_uri: '<redirect_uri>',
+          api_key: '9274b5fb757eea9d28190e00ec188a80',
+          secret: 'd557fb57a6a882d152545284e02fbc31',
+          redirect_uri: 'https://customappp.herokuapp.com/',
           scope: 'read_orders, read_products',
           embedded: 'true'
         }
