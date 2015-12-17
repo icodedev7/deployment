@@ -1,22 +1,15 @@
-EmbededApp::Application.routes.draw do
-
-  controller :sessions do
-    get 'login' => :new, :as => :login
-    post 'login' => :create, :as => :authenticate
-    get 'auth/shopify/callback' => :callback
-    get 'logout' => :destroy, :as => :logout
-  end
-
-  get 'modal' => "home#modal", :as => :modal
-  get 'modal_buttons' => "home#modal_buttons", :as => :modal_buttons
-  get 'regular_app_page' => "home#regular_app_page"
-  get 'help' => "home#help"
-  get 'pagination' => "home#pagination"
-  get 'breadcrumbs' => "home#breadcrumbs"
-  get 'buttons' => "home#buttons"
-  get 'form_page' => "home#form_page"
-  post 'form_page' => "home#form_page"
-  get 'error' => 'home#error'
-
-  root :to => 'home#index'
+Rails.application.routes.draw do
+ 
+  resources :articles
+ 
+  root 'welcome#index'
 end
+ 
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+  #
+  # You can have the root of your site routed with "root"
+  # root 'welcome#index'
+  #
+  # ...
