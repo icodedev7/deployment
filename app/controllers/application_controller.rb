@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
-  def new
-  end
+class ApplicationController < ActionController::Base
+  include ShopifyApp::Controller
+  protect_from_forgery
 end
