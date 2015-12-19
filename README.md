@@ -1,167 +1,52 @@
-Shopify App      [![Build Status](https://travis-ci.org/Shopify/shopify_app.png)](https://travis-ci.org/Shopify/shopify_app)
-===========
+# Shopify Embedded Application Example
 
-Shopify Application Rails engine and generator
+This is an example application for building Shopify Embedded Applications.
 
+The example uses Ruby on Rails as a backend framework but the Shopify Embedded API is JavaScript based, so it is backend language/framework agnostic. Use this as a reference.
 
-Description
------------
-This gem includes some common code and generators for writing Rails applications using the Shopify API.
+For details on how embedded applications work in Shopify, how to setup your app, and the full javascript API for `ShopifyApp`, please consult the documentation:
 
-*Note: It's recommended to use this on a new Rails project, so that the generator won't overwrite/delete some of your files.*
+http://docs.shopify.com/embedded-app-sdk
 
+# Setting up this application
 
-Quickstart
-----------
+Clone the repo from git:
 
-Check out this screencast on how to create and deploy a new Shopify App to Heroku in 5 minutes:
+    git clone https://github.com/Shopify/embedded-app-example.git
+    cd embedded-app-example
 
-[https://vimeo.com/130247240](https://vimeo.com/130247240)
+Create a `.env` file for your application credentials. These credentials are generated in your Shopify Partner account for your app:
 
-
-Becoming a Shopify App Developer
---------------------------------
-If you don't have a Shopify Partner account yet head over to http://shopify.com/partners to create one, you'll need it before you can start developing apps.
-
-Once you have a Partner account create a new application to get an Api key and other Api credentials. To create a development application set the Application Callback URL to
-
-https://devlopment-store.myshopify.com/admin
-
-This way you'll be able to run the app on your local machine.
-
-
-Installation
-------------
-To get started add shopify_app to your Gemfile and bundle install
-
-``` sh
-# Create a new rails app
-$ rails new my_shopify_app
-$ cd my_shopify_app
-
-# Add the gem shopify_app to your Gemfile
-$ echo "gem 'shopify_app'" >> Gemfile
-$ bundle install
 ```
+SHOPIFY_CLIENT_API_KEY=a0d5ba398f7eb2de0c9dc7672eb94b53
+SHOPIFY_CLIENT_API_SECRET=d557fb57a6a882d152545284e02fbc31
 
-Now we are ready to run any of the shopify_app generators. The following section explains the generators and what they can do.
+Note that your app must have the Embedded App SDK enabled in that same partner account page.
 
+Install the gems:
 
-Generators
-----------
+    bundle install
 
-### Install Generator
+Create necessary tables:
 
-```sh
-$ rails generate shopify_app:install
+    rake db:migrate
 
-# or optionally with arguments:
+Run the server:
 
-$ rails generate shopify_app:install -api_key=a0d5ba398f7eb2de0c9dc7672eb94b53 -secret=d557fb57a6a882d152545284e02fbc31 -redirect_uri=https://customappp.herokuapp.com/
-```
+    bundle exec rails server
 
-Other options include:
-* `scope` - the Oauth access scope required for your app, eg 'read_products, write_orders'. For more information read the [docs](http://docs.shopify.com/api/tutorials/oauth)
-* `embedded` - the default is to generate an [embedded app](http://docs.shopify.com/embedded-app-sdk), if you want a legacy non-embedded app then set this to false, `-embedded false`
+Deploy to Heroku:
+    heroku create
+    git push heroku master
+    heroku run rake db:migrate
+    heroku config:set SHOPIFY_CLIENT_API_KEY=a0d5ba398f7eb2de0c9dc7672eb94b53
+    heroku config:set SHOPIFY_CLIENT_API_SECRET=d557fb57a6a882d152545284e02fbc31
+    heroku open
 
-You can update any of these settings later on easily, the arguments are simply for convenience.
+To install the application on your dev-shop go to:
 
-The generator creates a basic SessionsController for authenticating with your shop and a HomeController which displays basic information about your products using the ShopifyAPI. The generated controllers include concerns provided by this gem - in this way code sharing is possible and if some of these core methods are updated everyone can benefit. It is completely safe to override any of the methods provided by this gem in your application.
+    http://localhost:3000/login?shop=<yourdevshop-url.myshopify.com>
 
-After running the `install` generator you can start your app with `bundle exec rails server` and install your app by visiting localhost.
+You will be prompted to install the application and will be redirected to the embedded Shopify environment once installed.
 
-
-### Shop Model Generator
-
-```sh
-$ rails generate shopify_app:shop_model
-```
-
-The install generator doesn't create any database models for you and if you are starting a new app its quite likely that you will want one (most our internally developed apps do!). This generator creates a simple shop model and a migration. It also create a model called `SessionStorage` which interacts with `ShopifyApp::SessionRepository`. Check out the later section to learn more about `ShopifyApp::SessionRepository`
-
-*Note that you will need to run rake db:migrate after this generator*
-
-### Controllers, Routes and Views
-
-The last group of generators are for your convenience when you want to start overriding code included as part of the Rails engine. For example by default the engine provides a simple SessionController, if you run the `rails generate shopify_app:controllers` generator then this code gets copied out into your app so you can start adding to it. Routes and views follow the exact same pattern.
-
-
-### Default Generator
-
-If you just run `rails generate shopify_app` then all the generators will be run for you. This is how we do it internally!
-
-
-
-Managing Api Keys
------------------
-
-The `install` generator places your Api credentials directly into the shopify_app initializer which is convient and fine for development but once your app goes into production **your api credentials should not be in source control**. When we develop apps we keep our keys in environment variables so a production shopify_app initializer would look like this:
-
-```ruby
-ShopifyApp.configure do |config|
-  config.api_key = ENV['a0d5ba398f7eb2de0c9dc7672eb94b53']
-  config.secret = ENV['d557fb57a6a882d152545284e02fbc31']
-  config.redirect_uri = "<%= https://customappp.herokuapp.com/ %>"
-  config.scope = 'read_customers, read_orders, write_products'
-  config.embedded_app = true
-end
-```
-
-ShopifyApp::SessionRepository
------------------------------
-
-`ShopifyApp::SessionRepository` allows you as a developer to define how your sessions are retrieved and
-stored for a shop. This can simply be your `Shop` model that stores the API Token and shop name. If
-you are using ActiveRecord, then all you need to implement is `self.store(shopify_session)` and
-`self.retrieve(id)` in order to store the record on disk or retrieve it for use at a later point.
-It is imperative that your store method returns the identifier for the session. Typically this is
-just the record ID.
-
-Your ActiveRecord model would look something like this:
-
-```ruby
-class Shop < ActiveRecord::Base
-  def self.store(session)
-    shop = self.new(domain: session.url, token: session.token)
-    shop.save!
-    shop.id
-  end
-
-  def self.retrieve(id)
-    if shop = self.where(id: id).first
-      ShopifyAPI::Session.new(shop.domain, shop.token)
-    end
-  end
-end
-```
-
-By default you will have an in memory store but it **won't work** on multi-server environments since
-they won't be sharing the static data that would be required in case your user gets directed to a
-different server by your load balancer.
-
-The in memory store also does not behave well on Heroku because the session data would be destroyed
-when a dyno is killed due to inactivity.
-
-Changing the `ShopifyApp::SessionRepository.storage` can simply be done by editing
-`config/initializers/shopify_session_repository.rb` to use the correct model.
-
-```ruby
-ShopifyApp::SessionRepository.storage = 'Shop'
-```
-
-If you run the `shop_model` generator it will create the required code to use the generated Shop model as the SessionRepository and update the initializer.
-
-
-AuthenticatedController
------------------------
-
-The engine includes a controller called `AuthenticatedController` which inherits from `ApplicationController`. It adds some before_filters which ensure the user is authenticated and will redirect to the login page if not. It is best practice to have all controllers that belong to the Shopify part of your app inherit from this controller. The HomeController that is generated already inherits from AuthenticatedController.
-
-
-Questions or problems?
-----------------------
-http://api.shopify.com <= Read up on the possible API calls!
-
-http://ecommerce.shopify.com/c/shopify-apis-and-technology <= Ask questions!
-
-http://docs.shopify.com/api/the-basics/getting-started <= Read the docs!
+For local development most modern browsers will block mixed content. Since Shopify runs on HTTPS and a local development server does not, the browser will block the contents of the iframe. The you can either explicitly allow mixed content for your session, or use an HTTPS forwarding service.
