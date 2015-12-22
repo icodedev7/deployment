@@ -10,7 +10,7 @@ gem "sass"
 gem "sinatra"
 
 group :development do
-  gem "shotgun"
+   gem "shotgun"
 end
 
 group :production do
