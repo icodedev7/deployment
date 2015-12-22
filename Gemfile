@@ -31,4 +31,5 @@ end
 
 group :packaging do
   gem "fog"
+  gem "update"
 end
