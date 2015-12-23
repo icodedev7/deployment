@@ -8,7 +8,7 @@ gem "rake"
 gem "rdiscount", "~> 1.6.x"
 gem "sass"
 gem "sinatra"
-
+gem 'bcrypt-ruby', '~> 3.0.0'
 group :development do
    gem "shotgun"
 end
