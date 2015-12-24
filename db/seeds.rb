@@ -10,6 +10,7 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
+#   gem "pg"
 #
 #default: &default
   #adapter: sqlite3
