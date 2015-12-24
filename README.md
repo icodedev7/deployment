@@ -57,7 +57,7 @@ $ rails generate shopify_app:install
 
 # or optionally with arguments:
 
-$ rails generate shopify_app:install -api_key=a0d5ba398f7eb2de0c9dc7672eb94b53 -secret=d557fb57a6a882d152545284e02fbc31 -redirect_uri=https://customappp.herokuapp.com/
+$ rails generate shopify_app:install -api_key=9274b5fb757eea9d28190e00ec188a80 -secret=a42c103cbe0534285b7d2b31c02b364c -redirect_uri=https://customappp.herokuapp.com/
 ```
 
 Other options include:
