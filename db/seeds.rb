@@ -54,4 +54,4 @@ production:
    encoding: unicode
    database: d2ikq355suuh2e
    username: zldhjqfhfyiqsg
-   password: 0bmagN0vbOaqt9xsyPY8mI1i8z
+   password:0bmagN0vbOaqt9xsyPY8mI1i8z
