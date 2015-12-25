@@ -38,20 +38,20 @@
 development:
    adapter:postgresql-closed-7131
    encoding: unicode
-   database: d86k81krdp77qj
+   database:db/development.sqlite3
    username: qxmwckkrozhbfr
    password:YFMOtgyC1rHN9Ye9iFlska_jXZ
 
 test:
    adapter: postgresql-adjacent-1301
    encoding: unicode
-   database: debsg67e67fbcr
+   database: db/development.sqlite3
    username: kdzslrgkhcbsbz
    password:fAV5ZHivRU4GSZ678OV_TZPJ-L
  
 production:
    adapter: postgresql-polished-4862
    encoding: unicode
-   database: d2ikq355suuh2e
+   database: db/development.sqlite3
    username: zldhjqfhfyiqsg
    password:0bmagN0vbOaqt9xsyPY8mI1i8z
