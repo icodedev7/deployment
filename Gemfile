@@ -15,6 +15,7 @@ gem "sass"
 gem "sinatra"
 group :development do
   gem "shotgun"
+    gem "sqlite3"
 end
 group :development, :test do
   gem 'spring'
@@ -34,3 +35,7 @@ end
 group :packaging do
   gem "fog"
 end
+group :test, :production do
+  gem 'pg'
+end
+
