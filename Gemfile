@@ -1,40 +1,36 @@
-source 'https://rubygems.org'
- 
-gem 'rails', '3.2.13'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'devise'
-gem 'mysql2'
-group :production do
-gem 'pg'
-end
-gem 'json'
- 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
- 
-  # See [url]https://github.com/sstephenson/execjs#readme[/url] for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
- 
-  gem 'uglifier', '>= 1.0.3'
-end
- 
+ruby "2.1.5"
+source "http://rubygems.org"
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
- 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
- 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
- 
-# Use unicorn as the app server
-# gem 'unicorn'
- 
-# Deploy with Capistrano
-# gem 'capistrano'
- 
-# To use debugger
-# gem 'ruby-debug'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
+gem 'bootstrap-sass'
+gem "compass"
+gem "haml"
+gem "heroku-nav"
+gem "rake"
+gem "rdiscount", "~> 1.6.x"
+gem "sass"
+gem "sinatra"
+group :development do
+  gem "shotgun"
+end
+group :development, :test do
+  gem 'spring'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+group :test do
+  gem "rack-test"
+  gem "minitest-spec-context"
+  gem "mocha"
+end
+
+group :packaging do
+  gem "fog"
+end
