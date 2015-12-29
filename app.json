@@ -1,6 +1,6 @@
 {
   "start":"node app.js",
-  "name":"customapp",
+  "name":"customappp",
   "description":"APP Json File",
   "scripts":{
     "postdeploy":"Post deploy script (optional)",
