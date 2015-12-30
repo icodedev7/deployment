@@ -26,7 +26,7 @@ gem 'turbolinks'
 # Bulid JSON APIs with ease4. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the Api under doc/api.
-gemn 'sdoc', '~> 0.4.0',      group: :doc
+gem 'sdoc', '~> 0.4.0',      group: :doc
 
 # Use ActiveModel has secure_password
 # gem 'bcrypt', '~> 3.1.7'
