@@ -35,7 +35,6 @@ gemn 'sdoc', '~> 0.4.0',      group: :doc
 # gem 'unicorn'
 # Use Capistrano for deployment
 #gem 'capistrano-rails', group: :develpoment
-end
 group :development do
   gem "shotgun"
 end
