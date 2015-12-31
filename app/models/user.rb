@@ -1,3 +1,2 @@
-class User < ActiveRecord::Base
-  acts_as_authentic
+class UserSession < Authlogic::Session::Base
 end
