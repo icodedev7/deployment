@@ -12,8 +12,8 @@ require 'sinatra/base'
 require 'omniauth-shopify-oauth2'
 
 SCOPE = 'read_products,read_orders,read_customers,write_shipping'
-SHOPIFY_API_KEY = ENV['9274b5fb757eea9d28190e00ec188a80']
-SHOPIFY_SHARED_SECRET = ENV['d557fb57a6a882d152545284e02fbc31']
+SHOPIFY_API_KEY = ENV['1557f5e9b1d11e7812c973e2f7d94782']
+SHOPIFY_SHARED_SECRET = ENV['ed8d006d04bd0c0b542ad675f7a05e2c']
 
 unless SHOPIFY_API_KEY && SHOPIFY_SHARED_SECRET
   abort("SHOPIFY_API_KEY and SHOPIFY_SHARED_SECRET environment variables must be set")
@@ -46,7 +46,7 @@ class App < Sinatra::Base
     <body>
       <h3>Authorized</h3>
       <p>Shop: #{request.env['omniauth.auth'].uid}</p>
-      <p>Token: #{request.env['omniauth.auth']['a42c103cbe0534285b7d2b31c02b364c']['e10f90a8db77e42a881565b3857d6f69-1446888357']}</p>
+      <p>Token: #{request.env['omniauth.auth']['1557f5e9b1d11e7812c973e2f7d94782']['8a7fd0e949c7c9f6e31528aa7ff65860-1451902652']}</p>
     </body>
     </html>
     HTML
