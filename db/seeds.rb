@@ -36,11 +36,11 @@
    encoding: unicode
   
 development:
-   adapter:'postgis',
+   adapter:'postgresql',
    encoding: 'unicode',
-   host:ec2-54-197-238-19.compute-1.amazonaws.com ,
+   host:ec2-54-204-12-25.compute-1.amazonaws.com ,
    port:5432 ,
-   database:d2ikq355suuh2en,
-   username:zldhjqfhfyiqsg ,
-   password:0bmagN0vbOaqt9xsyPY8mI1i8z
+   database:dces63muf9v1ni,
+   username:nhszlzfeezupzl ,
+   password: 26T-4jfkTCtiaSFXpPpllTp5Fd
 
