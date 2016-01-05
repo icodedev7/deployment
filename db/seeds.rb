@@ -38,9 +38,11 @@
 development:
    adapter:'postgresql',
    encoding: 'unicode',
-   host:ec2-54-204-12-25.compute-1.amazonaws.com ,
-   port:5432 ,
+   host:ec2-54-204-12-25.compute-1.amazonaws.com,
+   port:5432,
    database:dces63muf9v1ni,
-   username:nhszlzfeezupzl ,
-   password: 26T-4jfkTCtiaSFXpPpllTp5Fd
-
+   username:nhszlzfeezupzl,
+   password:26T-4jfkTCtiaSFXpPpllTp5Fd,
+  Psql:heroku pg:psql --app customfield DATABASE,
+  URL:Hide postgres://nhszlzfeezupzl:26T-4jfkTCtiaSFXpPpllTp5Fd@ec2-54-204-12-25.compute-1.amazonaws.com:5432/dces63muf9v1ni,
+  Resource name:postgresql-reticulated-7119 
